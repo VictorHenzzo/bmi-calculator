@@ -7,24 +7,23 @@ class BmiCalculatorCubit extends Cubit<BmiCalculatorState>
     with BmiCalculatorPresenter {
   BmiCalculatorCubit() : super(const BmiCalculatorInitialState());
 
-  double? userBmi;
-  BMIStatus? bmiStatus;
-
   @override
-  void calculateBmi({
+  BMIStatus calculateBmi({
     required double height,
     required double weigth,
   }) {
+    late BMIStatus bmiStatus;
     emit(const BmiCalculatorLoadingState());
 
     try {
-      userBmi = weigth / (height * height);
-
-      bmiStatus = BMIStatus.fromBmiIndex(userBmi!);
+      double userBmi = weigth / (height * height);
+      bmiStatus = BMIStatus.fromBmiIndex(userBmi);
 
       emit(const BmiCalculatorResultState());
     } catch (error) {
       emit(const BmiCalculatorErrorState());
     }
+
+    return bmiStatus;
   }
 }
