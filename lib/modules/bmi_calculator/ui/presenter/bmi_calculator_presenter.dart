@@ -5,4 +5,6 @@ mixin BmiCalculatorPresenter {
     required double height,
     required double weigth,
   });
+
+  void resetResults() {}
 }

@@ -70,7 +70,7 @@ class BmiCalculatorScreen extends StatelessWidget {
                   controller: weightController,
                 ),
                 CustomFormField(
-                  labelTex: 'Altura (cm)',
+                  labelTex: 'Altura (m)',
                   icon: const Icon(Icons.height),
                   controller: heightController,
                 ),
@@ -94,6 +94,18 @@ class BmiCalculatorScreen extends StatelessWidget {
   }
 
   Widget _buildResult() {
-    return Center();
+    return Center(
+      child: Column(
+        children: [
+          Text(result.bmiIndex.toStringAsFixed(2)),
+          Text(result.classification.toString()),
+          Text(result.healthIssues.toString()),
+          ElevatedButton(
+            onPressed: bmiCalculatorPresenter.resetResults,
+            child: const Text('Refazer'),
+          )
+        ],
+      ),
+    );
   }
 }

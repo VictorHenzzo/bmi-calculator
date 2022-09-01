@@ -26,4 +26,9 @@ class BmiCalculatorCubit extends Cubit<BmiCalculatorState>
 
     return bmiStatus;
   }
+
+  @override
+  void resetResults() {
+    emit(const BmiCalculatorInitialState());
+  }
 }
