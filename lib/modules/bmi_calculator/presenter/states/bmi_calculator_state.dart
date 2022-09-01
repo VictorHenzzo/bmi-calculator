@@ -1,28 +1,35 @@
 import 'package:equatable/equatable.dart';
 
-abstract class BMICalculatorState extends Equatable {
-  const BMICalculatorState();
+abstract class BmiCalculatorState extends Equatable {
+  const BmiCalculatorState();
 
   @override
   List<Object?> get props => [];
 }
 
-class BMICalculatorIniticalState extends BMICalculatorState {
-  const BMICalculatorIniticalState();
+class BmiCalculatorInitialState extends BmiCalculatorState {
+  const BmiCalculatorInitialState();
 
   @override
   List<Object?> get props => [];
 }
 
-class BMICalculatorResultState extends BMICalculatorState {
-  const BMICalculatorResultState();
+class BmiCalculatorResultState extends BmiCalculatorState {
+  const BmiCalculatorResultState();
 
   @override
   List<Object?> get props => [];
 }
 
-class BMICalculatorErrorState extends BMICalculatorState {
-  const BMICalculatorErrorState();
+class BmiCalculatorLoadingState extends BmiCalculatorState {
+  const BmiCalculatorLoadingState();
+
+  @override
+  List<Object?> get props => [];
+}
+
+class BmiCalculatorErrorState extends BmiCalculatorState {
+  const BmiCalculatorErrorState();
 
   @override
   List<Object?> get props => [];
