@@ -1,20 +1,10 @@
-import 'package:bmi_calculator/modules/bmi_calculator/data/repository/get_bmi_result_repository.dart';
-import 'package:bmi_calculator/modules/bmi_calculator/ports/input/get_bmi_result_input_port.dart';
-import 'package:bmi_calculator/modules/bmi_calculator/ports/output/get_bmi_result_output_port.dart';
 import 'package:bmi_calculator/modules/bmi_calculator/routes/bmi_calculator_route.dart';
-import 'package:bmi_calculator/modules/bmi_calculator/usecase/get_bmi_result_use_case.dart';
 import 'package:bmi_calculator/navigation/app_navigation.dart';
+import 'package:bmi_calculator/service_locator/service_locator.dart';
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
 
 void main() {
-  GetIt getIt = GetIt.I;
-
-  getIt.registerSingleton<GetBmiResultOutputPort>(GetBmiResultRepository());
-  getIt.registerSingleton<GetBmiResultInputPort>(GetBmiResultUseCase(
-    getIt<GetBmiResultOutputPort>(),
-  ));
-
+  configureDependencies();
   runApp(const MyApp());
 }
 

@@ -9,3 +9,4 @@ A new Flutter project.
 1. Adding repository, usecase and ports
 2. Refactoring to include new layers
 3. Adding get_it
+4. Adding injectable
