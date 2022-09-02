@@ -16,12 +16,15 @@ dependencies:
   equatable: ^2.0.3
   flutter_bloc: ^8.0.1
   get_it: ^7.2.0
+  injectable:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^1.0.0
+  injectable_generator:
+  build_runner:
 
 flutter:
   uses-material-design: true

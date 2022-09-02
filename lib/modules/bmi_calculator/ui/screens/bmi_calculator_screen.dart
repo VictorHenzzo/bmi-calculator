@@ -17,6 +17,7 @@ class BmiCalculatorScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController weightController = TextEditingController();
   final TextEditingController heightController = TextEditingController();
+  //TODO: Remove
   late BmiStatus result;
 
   @override

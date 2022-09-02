@@ -2,7 +2,9 @@
 import 'package:bmi_calculator/modules/bmi_calculator/domain/bmi_status.dart';
 import 'package:bmi_calculator/modules/bmi_calculator/ports/input/get_bmi_result_input_port.dart';
 import 'package:bmi_calculator/modules/bmi_calculator/ports/output/get_bmi_result_output_port.dart';
+import 'package:injectable/injectable.dart';
 
+@Injectable(as: GetBmiResultInputPort)
 class GetBmiResultUseCase implements GetBmiResultInputPort {
   GetBmiResultUseCase(this._outputPort);
 
