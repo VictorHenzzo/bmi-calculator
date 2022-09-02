@@ -1,4 +1,4 @@
-import 'package:bmi_calculator/modules/bmi_calculator/models/bmi_status.dart';
+import 'package:bmi_calculator/modules/bmi_calculator/domain/bmi_status.dart';
 import 'package:bmi_calculator/modules/bmi_calculator/presenter/cubits/bmi_calculator_cubit.dart';
 import 'package:bmi_calculator/modules/bmi_calculator/presenter/states/bmi_calculator_state.dart';
 import 'package:bmi_calculator/modules/bmi_calculator/ui/components/custom_form_field.dart';
@@ -17,7 +17,7 @@ class BmiCalculatorScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController weightController = TextEditingController();
   final TextEditingController heightController = TextEditingController();
-  late BMIStatus result;
+  late BmiStatus result;
 
   @override
   Widget build(BuildContext context) {
@@ -37,17 +37,14 @@ class BmiCalculatorScreen extends StatelessWidget {
         case BmiCalculatorInitialState:
           return _buildForm();
         case BmiCalculatorLoadingState:
-          debugPrint('2');
           return const CircularProgressIndicator();
         case BmiCalculatorResultState:
-          debugPrint('3');
           return _buildResult();
         case BmiCalculatorErrorState:
-          debugPrint('4');
           return const Center(child: Text('Ops! :('));
       }
 
-      return const CircularProgressIndicator();
+      return const SizedBox();
     });
   }
 
@@ -65,12 +62,12 @@ class BmiCalculatorScreen extends StatelessWidget {
             child: Column(
               children: [
                 CustomFormField(
-                  labelTex: 'Peso (kg)',
+                  labelText: 'Peso (kg)',
                   icon: const Icon(Icons.balance),
                   controller: weightController,
                 ),
                 CustomFormField(
-                  labelTex: 'Altura (m)',
+                  labelText: 'Altura (m)',
                   icon: const Icon(Icons.height),
                   controller: heightController,
                 ),
@@ -79,6 +76,7 @@ class BmiCalculatorScreen extends StatelessWidget {
         const Spacer(flex: 1),
         ElevatedButton(
           onPressed: () {
+            //TODO: Refatorar, validar durante o input e realizar teste de widget no form
             if (!_formKey.currentState!.validate()) return;
 
             result = bmiCalculatorPresenter.calculateBmi(

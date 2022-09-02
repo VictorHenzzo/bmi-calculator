@@ -1,4 +1,5 @@
-Map<String, String> getInfoFromBmiIndex(double bmiIndex) {
+Map<String, String> getBmiResultDatasource(double weight, double height) {
+  double bmiIndex = weight / (height * height);
   String classification;
   String healthIssues;
 
@@ -24,6 +25,7 @@ Map<String, String> getInfoFromBmiIndex(double bmiIndex) {
   }
 
   return {
+    'bmiIndex': bmiIndex.toString(),
     'classification': classification,
     'healthIssues': healthIssues,
   };

@@ -1,7 +1,7 @@
-import 'package:bmi_calculator/modules/bmi_calculator/models/bmi_status.dart';
+import 'package:bmi_calculator/modules/bmi_calculator/domain/bmi_status.dart';
 
 mixin BmiCalculatorPresenter {
-  BMIStatus calculateBmi({
+  BmiStatus calculateBmi({
     required double height,
     required double weigth,
   });
