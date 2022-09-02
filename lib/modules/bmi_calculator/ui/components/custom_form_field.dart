@@ -4,12 +4,12 @@ import 'package:flutter/services.dart';
 class CustomFormField extends StatelessWidget {
   const CustomFormField({
     Key? key,
-    required this.labelTex,
+    required this.labelText,
     required this.icon,
     required this.controller,
   }) : super(key: key);
 
-  final String labelTex;
+  final String labelText;
   final Widget icon;
   final TextEditingController controller;
 
@@ -26,7 +26,7 @@ class CustomFormField extends StatelessWidget {
         inputFormatters: [FilteringTextInputFormatter.allow(RegExp('[0-9.]+'))],
         decoration: InputDecoration(
           icon: icon,
-          labelText: labelTex,
+          labelText: labelText,
         ),
       ),
     );
