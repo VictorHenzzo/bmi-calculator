@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BmiCalculatorRoute {
-  static const String path = '/';
+  static const String path = '/bmi_calculator';
 
   static Route<dynamic> of() {
     final presenter = BmiCalculatorPresenterFactory.make();
