@@ -1,4 +1,4 @@
-import 'package:bmi_calculator/modules/bmi_calculator/routes/bmi_calculator_route.dart';
+import 'package:bmi_calculator/modules/splash/splash_screen_route.dart';
 import 'package:bmi_calculator/navigation/app_navigation.dart';
 import 'package:bmi_calculator/service_locator/service_locator.dart';
 import 'package:flutter/material.dart';
@@ -17,9 +17,21 @@ class MyApp extends StatelessWidget {
       title: 'BMI Calculator',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme: const ColorScheme(
+          background: Color(0xff313131),
+          onBackground: Color(0xff4a4a4f),
+          primary: Color(0xff9ff0bf),
+          secondary: Color(0xff597fba),
+          brightness: Brightness.light,
+          error: Color(0xfff75454),
+          onError: Color(0xfff75454),
+          onPrimary: Color(0xff9ff0bf),
+          onSecondary: Color(0xff597fba),
+          onSurface: Color(0xffFFFFFF),
+          surface: Color(0xffFFFFFF),
+        ),
       ),
-      initialRoute: BmiCalculatorRoute.path,
+      initialRoute: SplashScreenRoute.path,
       onGenerateRoute: AppNavigation.generateRoute,
     );
   }
