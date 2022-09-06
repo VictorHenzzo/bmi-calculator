@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/modules/bmi_calculator/domain/bmi_status.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class BmiCalculatorState extends Equatable {
@@ -15,7 +16,9 @@ class BmiCalculatorInitialState extends BmiCalculatorState {
 }
 
 class BmiCalculatorResultState extends BmiCalculatorState {
-  const BmiCalculatorResultState();
+  const BmiCalculatorResultState(BmiStatus this.bmiStatus);
+
+  final bmiStatus;
 
   @override
   List<Object?> get props => [];

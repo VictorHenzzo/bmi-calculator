@@ -20,8 +20,8 @@ class MyApp extends StatelessWidget {
         colorScheme: const ColorScheme(
           background: Color(0xff313131),
           onBackground: Color(0xff4a4a4f),
-          primary: Color(0xff9ff0bf),
-          secondary: Color(0xff597fba),
+          secondary: Color(0xff9ff0bf),
+          primary: Color(0xff597fba),
           brightness: Brightness.light,
           error: Color(0xfff75454),
           onError: Color(0xfff75454),

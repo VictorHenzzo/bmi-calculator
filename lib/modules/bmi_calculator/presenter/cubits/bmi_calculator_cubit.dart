@@ -23,8 +23,7 @@ class BmiCalculatorCubit extends Cubit<BmiCalculatorState>
 
       BmiStatus bmiStatus = _getBmiResultInputPort.get(weigth, height);
 
-      //TODO: Criar abstração dos status, uma classe para cada classificação
-      emit(const BmiCalculatorResultState());
+      emit(const BmiCalculatorResultState(bmiStatus));
       return bmiStatus;
     } catch (error) {
       emit(const BmiCalculatorErrorState());

@@ -17,8 +17,6 @@ class BmiCalculatorScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController weightController = TextEditingController();
   final TextEditingController heightController = TextEditingController();
-  //TODO: Remove
-  late BmiStatus result;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +38,8 @@ class BmiCalculatorScreen extends StatelessWidget {
         case BmiCalculatorLoadingState:
           return const CircularProgressIndicator();
         case BmiCalculatorResultState:
-          return _buildResult();
+          if (state is BmiCalculatorResultState)
+            return _buildResult(state.bmiStatus);
         case BmiCalculatorErrorState:
           return const Center(child: Text('Ops! :('));
       }
@@ -92,7 +91,7 @@ class BmiCalculatorScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildResult() {
+  Widget _buildResult(BmiStatus result) {
     return Center(
       child: Column(
         children: [
