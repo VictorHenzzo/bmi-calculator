@@ -1,5 +1,4 @@
-Map<String, String> getBmiResultDatasource(double weight, double height) {
-  double bmiIndex = weight / (height * height);
+Map<String, String> getBmiResultDatasource(double bmiIndex) {
   String classification;
   String healthIssues;
 
