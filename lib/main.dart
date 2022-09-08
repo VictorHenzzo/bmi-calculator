@@ -1,6 +1,6 @@
+import 'package:bmi_calculator/core/navigation/app_navigation.dart';
+import 'package:bmi_calculator/core/service_locator/service_locator.dart';
 import 'package:bmi_calculator/modules/splash/splash_screen_route.dart';
-import 'package:bmi_calculator/navigation/app_navigation.dart';
-import 'package:bmi_calculator/service_locator/service_locator.dart';
 import 'package:flutter/material.dart';
 
 void main() {

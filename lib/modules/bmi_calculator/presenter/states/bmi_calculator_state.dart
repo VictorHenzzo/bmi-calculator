@@ -16,9 +16,9 @@ class BmiCalculatorInitialState extends BmiCalculatorState {
 }
 
 class BmiCalculatorResultState extends BmiCalculatorState {
-  const BmiCalculatorResultState(BmiStatus this.bmiStatus);
+  const BmiCalculatorResultState(this.bmiStatus);
 
-  final bmiStatus;
+  final BmiStatus bmiStatus;
 
   @override
   List<Object?> get props => [];
@@ -32,7 +32,9 @@ class BmiCalculatorLoadingState extends BmiCalculatorState {
 }
 
 class BmiCalculatorErrorState extends BmiCalculatorState {
-  const BmiCalculatorErrorState();
+  const BmiCalculatorErrorState(final this.error);
+
+  final String error;
 
   @override
   List<Object?> get props => [];

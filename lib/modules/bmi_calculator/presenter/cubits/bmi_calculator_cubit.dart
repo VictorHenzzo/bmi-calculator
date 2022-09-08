@@ -14,21 +14,18 @@ class BmiCalculatorCubit extends Cubit<BmiCalculatorState>
   final GetBmiResultInputPort _getBmiResultInputPort;
 
   @override
-  BmiStatus calculateBmi({
+  void calculateBmi({
     required double height,
     required double weigth,
   }) {
     try {
       emit(const BmiCalculatorLoadingState());
 
-      BmiStatus bmiStatus = _getBmiResultInputPort.get(weigth, height);
+      final BmiStatus bmiStatus = _getBmiResultInputPort.get(weigth, height);
 
-      emit(const BmiCalculatorResultState(bmiStatus));
-      return bmiStatus;
+      emit(BmiCalculatorResultState(bmiStatus));
     } catch (error) {
-      emit(const BmiCalculatorErrorState());
-
-      throw 'error getting results';
+      emit(BmiCalculatorErrorState(error.toString()));
     }
   }
 

@@ -1,4 +1,4 @@
-import 'package:bmi_calculator/service_locator/service_locator.config.dart';
+import 'package:bmi_calculator/core/service_locator/service_locator.config.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 

@@ -38,14 +38,33 @@ class BmiCalculatorScreen extends StatelessWidget {
         case BmiCalculatorLoadingState:
           return const CircularProgressIndicator();
         case BmiCalculatorResultState:
-          if (state is BmiCalculatorResultState)
+          if (state is BmiCalculatorResultState) {
             return _buildResult(state.bmiStatus);
+          }
+          return const SizedBox();
         case BmiCalculatorErrorState:
-          return const Center(child: Text('Ops! :('));
+          if (state is BmiCalculatorErrorState) {
+            return _buildError(state.error);
+          }
       }
 
       return const SizedBox();
     });
+  }
+
+  Center _buildError(String errorMessage) {
+    return Center(
+      child: Column(
+        children: [
+          const Text('Ops! :('),
+          Text(errorMessage),
+          ElevatedButton(
+            onPressed: bmiCalculatorPresenter.resetResults,
+            child: const Text('Refazer'),
+          )
+        ],
+      ),
+    );
   }
 
   Widget _buildForm() {
@@ -79,7 +98,7 @@ class BmiCalculatorScreen extends StatelessWidget {
             //TODO: Refatorar, validar durante o input e realizar teste de widget no form
             if (!_formKey.currentState!.validate()) return;
 
-            result = bmiCalculatorPresenter.calculateBmi(
+            bmiCalculatorPresenter.calculateBmi(
               height: double.parse(heightController.text),
               weigth: double.parse(weightController.text),
             );
@@ -101,7 +120,7 @@ class BmiCalculatorScreen extends StatelessWidget {
           ElevatedButton(
             onPressed: bmiCalculatorPresenter.resetResults,
             child: const Text('Refazer'),
-          )
+          ),
         ],
       ),
     );
