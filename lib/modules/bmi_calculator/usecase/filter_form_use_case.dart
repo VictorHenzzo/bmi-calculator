@@ -10,6 +10,7 @@ class FilterFormUseCase implements FilterFormInputPort {
       return false;
     }
 
+    //TODO filtar 1.2.3.2
     return !(message!.contains(RegExp('[^0-9.]')));
   }
 }
