@@ -8,22 +8,30 @@ void main() {
     sut = FilterFormUseCase();
   });
 
-  test('should return a empty string', () {
+  test('should return false due empty inputs', () {
     const String? nullString = null;
     const String? emptyString = '';
 
-    expect(sut.check(nullString), '');
-    expect(sut.check(emptyString), '');
+    expect(sut.check(nullString), false);
+    expect(sut.check(emptyString), false);
   });
 
-  test('should filter all characters but numbers and dots', () {
+  test('should return true due valid inputs', () {
     final numbers = sut.check('1234567890');
+    final doubleExample = sut.check('3.1415');
+
+    expect(numbers, true);
+    expect(doubleExample, true);
+  });
+
+  test('should return false due invalid inputs', () {
     final letters =
         sut.check('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
     final symbols = sut.check('!@#\$%¨&*()-_=+§´`[]{}[ªº/?~^;:><,.\\|');
+    final invalidDouble = sut.check('3,14');
 
-    expect(numbers, '1234567890');
-    expect(letters, '');
-    expect(symbols, '.');
+    expect(letters, false);
+    expect(symbols, false);
+    expect(invalidDouble, false);
   });
 }
