@@ -1,11 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:bmi_calculator/core/exception/custom_exception.dart';
-import 'package:bmi_calculator/modules/bmi_calculator/domain/bmi_status.dart';
 import 'package:bmi_calculator/modules/bmi_calculator/ports/input/filter_form_input_port.dart';
-import 'package:bmi_calculator/modules/bmi_calculator/ports/input/get_bmi_result_input_port.dart';
-import 'package:bmi_calculator/modules/bmi_calculator/presenter/cubits/bmi_calculator_cubit.dart';
 import 'package:bmi_calculator/modules/bmi_calculator/presenter/cubits/filter_form_cubit.dart';
-import 'package:bmi_calculator/modules/bmi_calculator/presenter/states/bmi_calculator_state.dart';
 import 'package:bmi_calculator/modules/bmi_calculator/presenter/states/filter_form_state.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class CustomFormField extends StatelessWidget {
   const CustomFormField({
@@ -18,12 +17,8 @@ class CustomFormField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 100.0),
       child: TextFormField(
-        validator: (String? value) {
-          return value!.isEmpty ? "Campo obrigatório" : null;
-        },
         controller: controller,
         keyboardType: TextInputType.number,
-        inputFormatters: [FilteringTextInputFormatter.allow(RegExp('[0-9.]+'))],
         decoration: InputDecoration(
           icon: icon,
           labelText: labelText,
